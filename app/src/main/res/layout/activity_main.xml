@@ -25,7 +25,7 @@
             android:hint="IP Address" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="99dp" android:layout_marginEnd="99dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="138dp" android:inputType="textUri"/>
+            android:layout_marginTop="138dp" android:inputType="textUri|text"/>
     <Button
             android:text="Connect"
             android:layout_width="wrap_content"

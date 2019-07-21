@@ -1,5 +1,6 @@
 package com.evanshrestha.asdic
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,16 +20,25 @@ class MainActivity : AppCompatActivity() {
         var editAddress = findViewById<TextView>(R.id.editAddress)
         var editPort = findViewById<TextView>(R.id.editPort)
         var buttonConnect = findViewById<Button>(R.id.buttonConnect)
-        var apiKey:String = ""
+        var apiKey : String = ""
+
+        val intent = Intent(this, MenuActivity::class.java)
 
         buttonConnect.setOnClickListener {
             doAsync {
                 var url = "http://" + editAddress.text.trim().toString() + ":" + editPort.text.trim().toString() + "/api/system/status?apikey=" + apiKey
                 try {
                     val result = URL(url).readText()
+                    intent.apply {
+                        putExtra("IP", editAddress.text.trim().toString())
+                        putExtra("PORT", editPort.text.trim().toString())
+                        putExtra("API_KEY", apiKey)
+                    }
                     uiThread {
                         toast(result)
+
                     }
+                    startActivity(intent)
                 } catch (e: Exception) {
                     uiThread() {
                         toast("Oops, something went wrong")
