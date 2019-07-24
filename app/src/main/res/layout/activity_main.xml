@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
-            android:hint="IP Address" />
+            android:hint="IP Address"
+            android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
             android:hint="Port"
+            android:singleLine="true"
             android:text="8989" />
     </android.support.design.widget.TextInputLayout>
 
