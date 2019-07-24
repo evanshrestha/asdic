@@ -34,13 +34,10 @@ class MainActivity : AppCompatActivity() {
                         putExtra("PORT", editPort.text.trim().toString())
                         putExtra("API_KEY", apiKey)
                     }
-                    uiThread {
-                        toast(result)
 
-                    }
                     startActivity(intent)
                 } catch (e: Exception) {
-                    uiThread() {
+                    uiThread {
                         toast("Oops, something went wrong")
                     }
                 }
