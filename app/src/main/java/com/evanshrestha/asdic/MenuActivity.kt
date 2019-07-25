@@ -45,7 +45,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         IP_ADDRESS = intent.getStringExtra("IP")
         PORT = intent.getStringExtra("PORT")
