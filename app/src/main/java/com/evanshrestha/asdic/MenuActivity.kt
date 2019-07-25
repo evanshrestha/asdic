@@ -67,16 +67,16 @@ class MenuActivity : AppCompatActivity() {
                     for (seriesImageIndex in 0 until seriesImages.length()) {
                         val seriesImageItem = seriesImages.getJSONObject(seriesImageIndex)
                         if (seriesImageItem.getString("coverType").equals("poster")) {
-                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + seriesImageItem.getString("url")
+                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + seriesImageItem.optString("url")
                             break
                         }
                     }
 
                     val newSeries : Series = Series()
-                    newSeries.title = seriesItem.getString("title")
+                    newSeries.title = seriesItem.optString("title")
                     newSeries.imageURL = seriesImagePosterURL
-                    newSeries.certification = seriesItem.getString("certification")
-                    newSeries.year = seriesItem.getString("year")
+                    newSeries.certification = seriesItem.optString("certification")
+                    newSeries.year = seriesItem.optString("year")
                     seriesItems.add(newSeries)
 
                 }
