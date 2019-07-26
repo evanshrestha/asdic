@@ -9,6 +9,7 @@ import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import java.io.File
 import java.net.URL
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         var editAddress = findViewById<TextView>(R.id.editAddress)
         var editPort = findViewById<TextView>(R.id.editPort)
         var buttonConnect = findViewById<Button>(R.id.buttonConnect)
-        var apiKey : String = ""
+        var apiKey : String = resources.openRawResource(R.raw.api).bufferedReader().use { it.readText() }
+
+        print(apiKey)
 
         val intent = Intent(this, MenuActivity::class.java)
 
