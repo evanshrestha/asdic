@@ -60,14 +60,14 @@ class MenuActivity : AppCompatActivity() {
                 val seriesArray = JSONArray(result)
                 for (seriesIndex in 0 until seriesArray.length()) {
                     val seriesItem : JSONObject = seriesArray.getJSONObject(seriesIndex)
-                    val seriesImages : JSONArray = seriesItem.getJSONArray("images")
+                    val seriesImages : JSONArray = seriesItem.optJSONArray("images")
 
                     var seriesImagePosterURL : String? = null
 
                     for (seriesImageIndex in 0 until seriesImages.length()) {
-                        val seriesImageItem = seriesImages.getJSONObject(seriesImageIndex)
-                        if (seriesImageItem.getString("coverType").equals("poster")) {
-                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + seriesImageItem.optString("url")
+                        val seriesImageItem = seriesImages.optJSONObject(seriesImageIndex)
+                        if (seriesImageItem.optString("coverType").equals("poster")) {
+                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
                             break
                         }
                     }
