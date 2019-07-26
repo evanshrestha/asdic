@@ -45,7 +45,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         IP_ADDRESS = intent.getStringExtra("IP")
         PORT = intent.getStringExtra("PORT")
@@ -60,23 +60,23 @@ class MenuActivity : AppCompatActivity() {
                 val seriesArray = JSONArray(result)
                 for (seriesIndex in 0 until seriesArray.length()) {
                     val seriesItem : JSONObject = seriesArray.getJSONObject(seriesIndex)
-                    val seriesImages : JSONArray = seriesItem.getJSONArray("images")
+                    val seriesImages : JSONArray = seriesItem.optJSONArray("images")
 
                     var seriesImagePosterURL : String? = null
 
                     for (seriesImageIndex in 0 until seriesImages.length()) {
-                        val seriesImageItem = seriesImages.getJSONObject(seriesImageIndex)
-                        if (seriesImageItem.getString("coverType").equals("poster")) {
-                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + seriesImageItem.getString("url")
+                        val seriesImageItem = seriesImages.optJSONObject(seriesImageIndex)
+                        if (seriesImageItem.optString("coverType").equals("poster")) {
+                            seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
                             break
                         }
                     }
 
                     val newSeries : Series = Series()
-                    newSeries.title = seriesItem.getString("title")
+                    newSeries.title = seriesItem.optString("title")
                     newSeries.imageURL = seriesImagePosterURL
-                    newSeries.certification = seriesItem.getString("certification")
-                    newSeries.year = seriesItem.getString("year")
+                    newSeries.certification = seriesItem.optString("certification")
+                    newSeries.year = seriesItem.optString("year")
                     seriesItems.add(newSeries)
 
                 }

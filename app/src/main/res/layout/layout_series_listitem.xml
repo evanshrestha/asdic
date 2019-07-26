@@ -26,6 +26,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_toEndOf="@id/seriesImageView"
+        android:fontFamily="@font/open_sans"
         android:text="Sillicon Valley"
         android:textColor="#000"
         android:textSize="17sp" />
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/seriesTitleText"
         android:layout_alignLeft="@id/seriesTitleText"
+        android:fontFamily="@font/open_sans_light"
         android:text="2004" />
 
     <TextView
@@ -45,5 +47,6 @@
         android:layout_below="@id/seriesTitleText"
         android:layout_marginLeft="16dp"
         android:layout_toEndOf="@id/seriesYearText"
+        android:fontFamily="@font/open_sans_light"
         android:text="TV-MA" />
 </RelativeLayout>
