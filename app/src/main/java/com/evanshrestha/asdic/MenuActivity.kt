@@ -63,18 +63,21 @@ class MenuActivity : AppCompatActivity() {
                     val seriesImages : JSONArray = seriesItem.optJSONArray("images")
 
                     var seriesImagePosterURL : String? = null
+                    var seriesImageFanartURL : String? = null
 
                     for (seriesImageIndex in 0 until seriesImages.length()) {
                         val seriesImageItem = seriesImages.optJSONObject(seriesImageIndex)
                         if (seriesImageItem.optString("coverType").equals("poster")) {
                             seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
-                            break
+                        } else if (seriesImageItem.optString("coverType").equals("fanart")) {
+                            seriesImageFanartURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
                         }
                     }
 
                     val newSeries : Series = Series()
                     newSeries.title = seriesItem.optString("title")
-                    newSeries.imageURL = seriesImagePosterURL
+                    newSeries.imageFanartURL = seriesImageFanartURL
+                    newSeries.imagePosterURL = seriesImagePosterURL
                     newSeries.certification = seriesItem.optString("certification")
                     newSeries.year = seriesItem.optString("year")
                     seriesItems.add(newSeries)

@@ -43,7 +43,7 @@ class RecyclerSeriesAdapter(val items: ArrayList<Series>) : RecyclerView.Adapter
             seriesTitleTextView?.text = series.title
             seriesCertificationTextView?.text = series.certification
             seriesYearTextView?.text = series.year
-            Picasso.get().load(series.imageURL).into(seriesImageView)
+            Picasso.get().load(series.imagePosterURL).into(seriesImageView)
         }
 
     }

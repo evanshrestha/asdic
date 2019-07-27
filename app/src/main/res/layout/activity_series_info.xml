@@ -6,16 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".SeriesInfoActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="put something here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/seriesInfoFanartImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="234dp"
+                    android:scaleType="centerCrop"
+                    android:tint="#AAA"
+                    android:tintMode="multiply"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/fanart" />
+
+                <ImageView
+                    android:id="@+id/seriesInfoPosterImage"
+                    android:layout_width="159dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="150dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/poster" />
+
+                <TextView
+                    android:id="@+id/seriesInfoTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Silicon Valley"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/seriesInfoPosterImage"
+                    app:layout_constraintStart_toStartOf="@+id/seriesInfoPosterImage" />
+
+                <TextView
+                    android:id="@+id/seriesInfoYearText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:text="2014"
+                    android:textColor="#CCCCCC"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/seriesInfoPosterImage"
+                    app:layout_constraintTop_toBottomOf="@+id/seriesInfoTitleText" />
+
+                <TextView
+                    android:id="@+id/seriesInfoCertificationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="TV-MA"
+                    android:textColor="#CCCCCC"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/seriesInfoYearText"
+                    app:layout_constraintTop_toBottomOf="@+id/seriesInfoTitleText" />
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
