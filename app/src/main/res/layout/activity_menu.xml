@@ -17,6 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="5"
-        tools:listitem="@layout/layout_series_listitem" />
+        tools:listitem="@layout/layout_series_listitem"/>
 
 </android.support.constraint.ConstraintLayout>
