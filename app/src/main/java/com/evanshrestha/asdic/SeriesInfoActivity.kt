@@ -19,6 +19,8 @@ class SeriesInfoActivity : AppCompatActivity() {
     var seriesInfoFanartImageView : ImageView? = null
     var seriesInfoPosterImageView : ImageView? = null
 
+    var seriesInfoDescriptionView : TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_series_info)
@@ -29,10 +31,13 @@ class SeriesInfoActivity : AppCompatActivity() {
         seriesInfoFanartImageView= findViewById<ImageView>(R.id.seriesInfoFanartImage)
         seriesInfoPosterImageView= findViewById<ImageView>(R.id.seriesInfoPosterImage)
 
+        seriesInfoDescriptionView= findViewById<TextView>(R.id.seriesDescriptionText)
+
         Picasso.get().load(SERIES?.imagePosterURL).into(seriesInfoPosterImageView)
         Picasso.get().load(SERIES?.imageFanartURL).into(seriesInfoFanartImageView)
         seriesInfoTitleTextView?.text = SERIES?.title
         seriesInfoYearTextView?.text = SERIES?.year
         seriesInfoCertificationTextView?.text = SERIES?.certification
+        seriesInfoDescriptionView?.text = SERIES?.description
     }
 }

@@ -30,7 +30,7 @@
         android:layout_toEndOf="@id/seriesImageView"
         android:fontFamily="@font/open_sans"
         android:text="Sillicon Valley"
-        android:textColor="#000"
+        android:textColor="#FFF"
         android:textSize="17sp" />
 
     <TextView
@@ -40,7 +40,8 @@
         android:layout_below="@id/seriesTitleText"
         android:layout_alignLeft="@id/seriesTitleText"
         android:fontFamily="@font/open_sans_light"
-        android:text="2004" />
+        android:text="2004"
+        android:textColor="#FFF"/>
 
     <TextView
         android:id="@+id/seriesCertificationText"
@@ -50,5 +51,6 @@
         android:layout_marginLeft="16dp"
         android:layout_toEndOf="@id/seriesYearText"
         android:fontFamily="@font/open_sans_light"
-        android:text="TV-MA" />
+        android:text="TV-MA"
+        android:textColor="#FFF"/>
 </RelativeLayout>

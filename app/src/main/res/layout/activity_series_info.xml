@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1C1C1C"
     tools:context=".SeriesInfoActivity">
 
     <ScrollView
@@ -37,7 +38,7 @@
                     android:layout_width="159dp"
                     android:layout_height="234dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="150dp"
+                    android:layout_marginTop="72dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/poster" />
@@ -76,7 +77,19 @@
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/seriesInfoYearText"
                     app:layout_constraintTop_toBottomOf="@+id/seriesInfoTitleText" />
+
             </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/seriesDescriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/open_sans"
+                android:text="Partially inspired by co-creator Mike Judge's experiences as a Silicon Valley engineer in the 1980s, this comedy series follows the misadventures of introverted computer programmer Richard and his brainy friends as they attempt to strike it rich in a high-tech gold rush. They live together in a Bay Area startup incubator loosely run by self-satisfied dot-com millionaire Erlich, who lets them stay in his house rent-free in exchange for a stake in the projects they invent there. But when Richard develops a powerful search algorithm at his day job, he finds himself caught in the middle of a bidding war between his boss -- whose firm offers Richard an eight-figure buyout -- and a deep-pocketed venture capitalist."
+                android:textColor="#CCCCCC" />
 
         </LinearLayout>
     </ScrollView>

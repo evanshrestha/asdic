@@ -9,6 +9,7 @@ class Series() : Parcelable {
     var imageFanartURL : String? = null
     var certification : String? = null
     var year : String? = null
+    var description : String? = null
 
     constructor(parcel: Parcel) : this() {
         title = parcel.readString()
@@ -16,6 +17,7 @@ class Series() : Parcelable {
         imageFanartURL = parcel.readString()
         certification = parcel.readString()
         year = parcel.readString()
+        description = parcel.readString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -24,6 +26,7 @@ class Series() : Parcelable {
         parcel.writeString(imageFanartURL)
         parcel.writeString(certification)
         parcel.writeString(year)
+        parcel.writeString(description)
     }
 
     override fun describeContents(): Int {

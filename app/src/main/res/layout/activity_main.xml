@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#1C1C1C">
 
     <!-- I P   A D D R E S S -->
     <android.support.design.widget.TextInputLayout
@@ -29,7 +30,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
             android:hint="IP Address"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textColor="#FFFFFF" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -57,7 +59,8 @@
             android:fontFamily="@font/open_sans"
             android:hint="Port"
             android:singleLine="true"
-            android:text="8989" />
+            android:text="8989"
+            android:textColor="#FFF"/>
     </android.support.design.widget.TextInputLayout>
 
 
@@ -78,7 +81,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#FFF"/>
 
     <ImageView
         android:id="@+id/imageView"
