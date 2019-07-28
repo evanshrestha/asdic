@@ -27,25 +27,9 @@ class MenuActivity : AppCompatActivity() {
     private var PORT : String? = null
     private var API_KEY : String? = null
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_dashboard -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         IP_ADDRESS = intent.getStringExtra("IP")
         PORT = intent.getStringExtra("PORT")
@@ -63,20 +47,24 @@ class MenuActivity : AppCompatActivity() {
                     val seriesImages : JSONArray = seriesItem.optJSONArray("images")
 
                     var seriesImagePosterURL : String? = null
+                    var seriesImageFanartURL : String? = null
 
                     for (seriesImageIndex in 0 until seriesImages.length()) {
                         val seriesImageItem = seriesImages.optJSONObject(seriesImageIndex)
                         if (seriesImageItem.optString("coverType").equals("poster")) {
                             seriesImagePosterURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
-                            break
+                        } else if (seriesImageItem.optString("coverType").equals("fanart")) {
+                            seriesImageFanartURL = "http://" + IP_ADDRESS + ":" + PORT + "/api" + seriesImageItem.optString("url") + "&apikey=" + API_KEY
                         }
                     }
 
                     val newSeries : Series = Series()
                     newSeries.title = seriesItem.optString("title")
-                    newSeries.imageURL = seriesImagePosterURL
+                    newSeries.imageFanartURL = seriesImageFanartURL
+                    newSeries.imagePosterURL = seriesImagePosterURL
                     newSeries.certification = seriesItem.optString("certification")
                     newSeries.year = seriesItem.optString("year")
+                    newSeries.description = seriesItem.optString("overview")
                     seriesItems.add(newSeries)
 
                 }

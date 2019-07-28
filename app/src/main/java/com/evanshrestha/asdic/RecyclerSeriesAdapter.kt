@@ -1,5 +1,6 @@
 package com.evanshrestha.asdic
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ class RecyclerSeriesAdapter(val items: ArrayList<Series>) : RecyclerView.Adapter
         private var seriesImageView : ImageView? = null
         private var seriesCertificationTextView : TextView? = null
         private var seriesYearTextView : TextView? = null
+        private var seriesObject : Series? = null
 
         init {
             seriesTitleTextView = itemView.findViewById(R.id.seriesTitleText)
@@ -30,14 +32,18 @@ class RecyclerSeriesAdapter(val items: ArrayList<Series>) : RecyclerView.Adapter
             seriesImageView = itemView.findViewById(R.id.seriesImageView)
             itemView.setOnClickListener {
                 Log.d("Asdic", adapterPosition.toString())
+                var seriesInfoIntent : Intent = Intent(parent.context, SeriesInfoActivity::class.java)
+                seriesInfoIntent.putExtra("SERIES", seriesObject)
+                parent.context.startActivity(seriesInfoIntent)
             }
         }
 
         fun bind(series : Series) {
+            seriesObject = series
             seriesTitleTextView?.text = series.title
             seriesCertificationTextView?.text = series.certification
             seriesYearTextView?.text = series.year
-            Picasso.get().load(series.imageURL).into(seriesImageView)
+            Picasso.get().load(series.imagePosterURL).into(seriesImageView)
         }
 
     }
@@ -50,7 +56,6 @@ class RecyclerSeriesAdapter(val items: ArrayList<Series>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val series : Series = items[position]
         holder.bind(series)
-
     }
 
     override fun getItemCount() = items.size
