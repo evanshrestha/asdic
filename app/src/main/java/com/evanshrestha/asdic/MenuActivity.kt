@@ -80,6 +80,7 @@ class MenuActivity : AppCompatActivity() {
                     newSeries.imagePosterURL = seriesImagePosterURL
                     newSeries.certification = seriesItem.optString("certification")
                     newSeries.year = seriesItem.optString("year")
+                    newSeries.description = seriesItem.optString("overview")
                     seriesItems.add(newSeries)
 
                 }
