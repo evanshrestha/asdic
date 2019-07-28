@@ -9,48 +9,57 @@
     android:layout_alignLeft="@id/seriesTitleText"
     android:background="?android:attr/selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/seriesImageView"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:adjustViewBounds="true"
-        tools:srcCompat="@tools:sample/avatars" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/seriesTitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@id/seriesImageView"
-        android:fontFamily="@font/open_sans"
-        android:text="Sillicon Valley"
-        android:textColor="#FFF"
-        android:textSize="17sp" />
+        <TextView
+            android:id="@+id/seriesYearText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_light"
+            android:text="2004"
+            android:textColor="#FFF"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/seriesTitleText"
+            app:layout_constraintTop_toBottomOf="@+id/seriesTitleText" />
 
-    <TextView
-        android:id="@+id/seriesYearText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seriesTitleText"
-        android:layout_alignLeft="@id/seriesTitleText"
-        android:fontFamily="@font/open_sans_light"
-        android:text="2004"
-        android:textColor="#FFF"/>
+        <ImageView
+            android:id="@+id/seriesImageView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/seriesCertificationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seriesTitleText"
-        android:layout_marginLeft="16dp"
-        android:layout_toEndOf="@id/seriesYearText"
-        android:fontFamily="@font/open_sans_light"
-        android:text="TV-MA"
-        android:textColor="#FFF"/>
+        <TextView
+            android:id="@+id/seriesTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Sillicon Valley"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/seriesImageView"
+            app:layout_constraintTop_toTopOf="@+id/seriesImageView" />
+
+        <TextView
+            android:id="@+id/seriesCertificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/open_sans_light"
+            android:text="TV-MA"
+            android:textColor="#FFF"
+            app:layout_constraintStart_toEndOf="@+id/seriesYearText"
+            app:layout_constraintTop_toTopOf="@+id/seriesYearText" />
+    </android.support.constraint.ConstraintLayout>
+
 </RelativeLayout>

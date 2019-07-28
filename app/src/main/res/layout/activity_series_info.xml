@@ -10,7 +10,9 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,6 +31,7 @@
                     android:tint="#AAA"
                     android:tintMode="multiply"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@drawable/fanart" />
@@ -38,22 +41,31 @@
                     android:layout_width="159dp"
                     android:layout_height="234dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="72dp"
+                    android:layout_marginTop="60dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/poster" />
 
                 <TextView
                     android:id="@+id/seriesInfoTitleText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="marquee"
                     android:fontFamily="@font/open_sans_bold"
+                    android:gravity="start"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:paddingRight="4dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
                     android:text="Silicon Valley"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/seriesInfoPosterImage"
-                    app:layout_constraintStart_toStartOf="@+id/seriesInfoPosterImage" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/seriesInfoPosterImage"
+                    app:layout_constraintTop_toBottomOf="@+id/seriesInfoFanartImage" />
 
                 <TextView
                     android:id="@+id/seriesInfoYearText"
@@ -62,34 +74,63 @@
                     android:fontFamily="@font/open_sans"
                     android:text="2014"
                     android:textColor="#CCCCCC"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/seriesInfoPosterImage"
-                    app:layout_constraintTop_toBottomOf="@+id/seriesInfoTitleText" />
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/seriesInfoTitleText"
+                    app:layout_constraintTop_toTopOf="@+id/seriesInfoCertificationText" />
 
                 <TextView
                     android:id="@+id/seriesInfoCertificationText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:fontFamily="@font/open_sans"
                     android:text="TV-MA"
                     android:textColor="#CCCCCC"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/seriesInfoYearText"
                     app:layout_constraintTop_toBottomOf="@+id/seriesInfoTitleText" />
 
             </android.support.constraint.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/seriesDescriptionText"
-                android:layout_width="match_parent"
+            <android.support.v7.widget.CardView
+                android:layout_width="384dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="Partially inspired by co-creator Mike Judge's experiences as a Silicon Valley engineer in the 1980s, this comedy series follows the misadventures of introverted computer programmer Richard and his brainy friends as they attempt to strike it rich in a high-tech gold rush. They live together in a Bay Area startup incubator loosely run by self-satisfied dot-com millionaire Erlich, who lets them stay in his house rent-free in exchange for a stake in the projects they invent there. But when Richard develops a powerful search algorithm at his day job, he finds himself caught in the middle of a bidding war between his boss -- whose firm offers Richard an eight-figure buyout -- and a deep-pocketed venture capitalist."
-                android:textColor="#CCCCCC" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/cardColor"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="Overview"
+                        android:textColor="#FFF" />
+
+                    <TextView
+                        android:id="@+id/seriesDescriptionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="Partially inspired by co-creator Mike Judge's experiences as a Silicon Valley engineer in the 1980s, this comedy series follows the misadventures of introverted computer programmer Richard and his brainy friends as they attempt to strike it rich in a high-tech gold rush. They live together in a Bay Area startup incubator loosely run by self-satisfied dot-com millionaire Erlich, who lets them stay in his house rent-free in exchange for a stake in the projects they invent there. But when Richard develops a powerful search algorithm at his day job, he finds himself caught in the middle of a bidding war between his boss -- whose firm offers Richard an eight-figure buyout -- and a deep-pocketed venture capitalist."
+                        android:textColor="#CCCCCC" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
