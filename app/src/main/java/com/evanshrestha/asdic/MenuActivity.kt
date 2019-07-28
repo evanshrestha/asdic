@@ -27,25 +27,9 @@ class MenuActivity : AppCompatActivity() {
     private var PORT : String? = null
     private var API_KEY : String? = null
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_dashboard -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         IP_ADDRESS = intent.getStringExtra("IP")
         PORT = intent.getStringExtra("PORT")
