@@ -36,7 +36,7 @@ class MenuActivity : AppCompatActivity() {
         API_KEY = intent.getStringExtra("API_KEY")
 
         val seriesItems : ArrayList<Series> = ArrayList()
-
+        linearLayoutManager = LinearLayoutManager(this)
         // Pull series info
         doAsync {
             val result = URL("http://" + IP_ADDRESS + ":" + PORT + "/api/series?apikey=" + API_KEY).readText()
@@ -68,6 +68,15 @@ class MenuActivity : AppCompatActivity() {
                     seriesItems.add(newSeries)
 
                 }
+                uiThread {
+                    viewAdapter = RecyclerSeriesAdapter(seriesItems)
+                    var recycler = findViewById<RecyclerView>(R.id.recycle_shows)
+                    recycler.apply {
+                        layoutManager = linearLayoutManager
+                        adapter = viewAdapter
+                    }
+                }
+
             } catch (e: Exception) {
                 uiThread {
                     toast("Whoopsie")
@@ -76,13 +85,8 @@ class MenuActivity : AppCompatActivity() {
             }
         }
 
-        linearLayoutManager = LinearLayoutManager(this)
 
-        viewAdapter = RecyclerSeriesAdapter(seriesItems)
-        var recycler = findViewById<RecyclerView>(R.id.recycle_shows)
-        recycler.apply {
-            layoutManager = linearLayoutManager
-            adapter = viewAdapter
-        }
+
+
     }
 }

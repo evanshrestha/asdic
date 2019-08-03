@@ -34,6 +34,7 @@ class RecyclerSeriesAdapter(val items: ArrayList<Series>) : RecyclerView.Adapter
                 Log.d("Asdic", adapterPosition.toString())
                 var seriesInfoIntent : Intent = Intent(parent.context, SeriesInfoActivity::class.java)
                 seriesInfoIntent.putExtra("SERIES", seriesObject)
+                seriesInfoIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                 parent.context.startActivity(seriesInfoIntent)
             }
         }
